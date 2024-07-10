@@ -14,6 +14,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MapMeta;
@@ -216,6 +217,7 @@ public class TreasureChest {
         MapMeta mapMeta = (MapMeta) mapItem.getItemMeta();
 
         mapMeta.setMapView(createMapView());
+        mapMeta.addItemFlags(ItemFlag.values());
         mapItem.setItemMeta(mapMeta);
 
         return mapItem;
@@ -241,6 +243,16 @@ public class TreasureChest {
         mapView.setUnlimitedTracking(true);
 
         return mapView;
+    }
+
+    /**
+     * Empties the chest.
+     */
+    public void empty() {
+        Chest chest = getChest();
+        if (chest == null) return;
+
+        chest.getInventory().clear();
     }
 
     /**

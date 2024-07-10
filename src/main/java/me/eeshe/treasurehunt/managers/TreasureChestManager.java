@@ -340,6 +340,7 @@ public class TreasureChestManager extends DataManager {
             Message.INCORRECT_TREASURE_CHEST.sendError(player);
             return;
         }
+        treasureChest.empty();
         setCurrentlyHuntedTreasureChest(null);
         for (Player online : Bukkit.getOnlinePlayers()) {
             Message.TREASURE_HUNT_CANCEL.send(online, Sound.TREASURE_HUNT_CANCEL);
@@ -351,6 +352,8 @@ public class TreasureChestManager extends DataManager {
      */
     public void stopHunt() {
         if (getCurrentlyHuntedTreasureChest() == null) return;
+
+        getCurrentlyHuntedTreasureChest().empty();
         setCurrentlyHuntedTreasureChest(null);
         for (Player online : Bukkit.getOnlinePlayers()) {
             Message.TREASURE_HUNT_CANCEL.send(online, Sound.TREASURE_HUNT_CANCEL);
