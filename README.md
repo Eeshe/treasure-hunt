@@ -21,3 +21,15 @@
 |--------------------------------|----------------------------------------------------------------------|
 | database                       | MySQL database settings.                                             |
 | treasure-chest.open-permission | Permission required for players to be able to open a treasure chest. |
+
+Messages, menus and sounds are also configurable in their corresponding files.
+
+## Installation
+
+1. Download the latest version of both TreasureHunt and [PenPenLib](https://github.com/Eeshe/pen-pen-lib).
+2. Place them in the `plugins` folder of your server.
+3. Boot the server.
+   1. During the first boot, TreasureHunt won't be enabled since it will be using the default MySQL config.
+4. Open the `config.yml` and modify the database settings with your MySQL credentials.
+5. Reboot the server.
+6. After this, the plugin should be ready to go!
