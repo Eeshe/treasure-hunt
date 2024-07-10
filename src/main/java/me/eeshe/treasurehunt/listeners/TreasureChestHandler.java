@@ -62,7 +62,8 @@ public class TreasureChestHandler implements Listener {
         if (treasureChest == null) return;
 
         Player player = event.getPlayer();
-        if (!player.hasPermission(plugin.getMainConfig().getTreasureChestOpenPermission())) {
+        String treasureOpenPermission = plugin.getMainConfig().getTreasureChestOpenPermission();
+        if (!treasureOpenPermission.isEmpty() && !player.hasPermission(treasureOpenPermission)) {
             event.setCancelled(true);
             Message.NO_TREASURE_PERMISSION.sendError(player);
             return;
